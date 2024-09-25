@@ -31,12 +31,23 @@
    <!-- owl stylesheets -->
    <link rel="stylesheet" href="css/owl.carousel.min.css">
    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-   <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
-      media="screen">
-   <link href="https://cdn.bootcdn.net/ajax/libs/gijgo/1.9.13/combined/css/gijgo.min.css" rel="stylesheet"
-      type="text/css" />
-   <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/pagePiling.js/1.5.6/jquery.pagepiling.min.css"
-      integrity="sha256-WA4vvlC6yUJ1Q62yNxxHt4O9wUKuhmJlSOKTsLZ+suk=" crossorigin="anonymous" />
+   <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+   <link href="https://cdn.bootcdn.net/ajax/libs/gijgo/1.9.13/combined/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+   <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/pagePiling.js/1.5.6/jquery.pagepiling.min.css" integrity="sha256-WA4vvlC6yUJ1Q62yNxxHt4O9wUKuhmJlSOKTsLZ+suk=" crossorigin="anonymous" />
+   <style>
+      /* Custom styles for high contrast */
+      body {
+         color: #000; /* Set text color to black */
+         background-color: #fff; /* Set background color to white */
+      }
+      h1, h3, h4 {
+         color: #000; /* Ensure headers are in high contrast */
+      }
+      .section {
+         text-align: center; /* Center content */
+         padding: 50px 0; /* Add padding for better spacing */
+      }
+   </style>
 </head>
 
 <body>
@@ -47,7 +58,7 @@
             <div class="header_section">
                <div class="row">
                   <div class="col-sm-12">
-                     <div class="logo"><a href="index.html"><img src="images/logo.png" height="100px" weight=></a></div>
+                     <div class="logo"><a href="index.html"><img src="images/logo.png" height="100px"></a></div>
                      <div class="menu_text">
                      </div>
                   </div>
@@ -65,8 +76,7 @@
                      <h1 class="banner_taital">霍梓航</h1>
                      <div class="readmore_bt">
                         <a href="#">
-                           <span>天津-河北工业大学</span><!-- </span></span> -->
-                           <!-- <hr class="border"> -->
+                           <span>天津-河北工业大学</span>
                         </a>
                      </div>
                   </div>
@@ -103,8 +113,42 @@
          </div>
       </div>
       <!-- about section end -->
-      <!-- product section start -->
-      <div id="product" class="section s3">
+      <!-- markdown section start (now the third page) -->
+      <div id="markdown" class="section s3">
+         <div class="about_section layout_padding">
+            <div class="container">
+               <div class="row">
+                  <div class="col-sm-12">
+                     <h3 class="about_taital">hamNote</h3>
+                     <blockquote>
+                        <p>Author: @Hamhuo</p>
+                        <p>Date: 9/23/2024</p>
+                     </blockquote>
+                     <p>(香肠笔记)</p>
+                     <h4>目标用户：</h4>
+                     <ul>
+                        <li>追求即开即用</li>
+                        <li>轻量化的软件</li>
+                        <li>简洁的ui，不需要复杂的元素</li>
+                        <li>进行简单排版，快速思维风暴</li>
+                     </ul>
+                     <h4>功能：</h4>
+                     <ul>
+                        <li>文字编辑</li>
+                        <li>Code Highlighting, line counting, AUTO-GENERATED header</li>
+                        <li>文件保存，加载, File Exit</li>
+                        <li>Data Marker</li>
+                     </ul>
+                     <h4>技术栈：</h4>
+                     <p>Java，JWT</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- markdown section end -->
+      <!-- product section (now the fourth page) -->
+      <div id="product" class="section s4">
          <div class="about_section layout_padding">
             <div class="container">
                <div class="row">
@@ -120,14 +164,10 @@
                         </a>
                      </div>
                   </div>
-
                   <div class="col-sm-4">
                      <div class="about_img"><img src="images/pop-img.png"></div>
                   </div>
-                 
-
                </div>
-
             </div>
          </div>
       </div>
@@ -139,20 +179,25 @@
    <script src="js/bootstrap.bundle.min.js"></script>
    <script src="js/jquery-3.0.0.min.js"></script>
    <script src="js/plugin.js"></script>
-   <script src="https://cdn.bootcdn.net/ajax/libs/pagePiling.js/1.5.6/jquery.pagepiling.min.js"
-      integrity="sha256-rcU19aswtHEi8sO/TRfnTaLpdi+bvMAETOY9lKSKv5E=" crossorigin="anonymous"></script>
+   <script src="https://cdn.bootcdn.net/ajax/libs/pagePiling.js/1.5.6/jquery.pagepiling.min.js" integrity="sha256-rcU19aswtHEi8sO/TRfnTaLpdi+bvMAETOY9lKSKv5E=" crossorigin="anonymous"></script>
    <!-- sidebar -->
    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
    <script src="js/custom.js"></script>
    <!-- javascript -->
    <script>
-      function openNav() {
-         document.getElementById("mySideNav").style.width = "100%";
-      }
-
-      function closeNav() {
-         document.getElementById("mySideNav").style.width = "0";
-      }
+      new pagepiling('#pagepiling', {
+         menu: null,
+         anchors: ['index', 'about', 'markdown', 'product'],
+         sectionsColor: ['#fff', '#fff', '#fff', '#fff'],
+         scrollingSpeed: 700,
+         easing: 'easeInOutCubic',
+         loopBottom: false,
+         loopTop: false,
+         responsive: 1,
+         afterLoad: function(anchorLink, index) {
+            // Callback after section is loaded
+         }
+      });
    </script>
 </body>
 
